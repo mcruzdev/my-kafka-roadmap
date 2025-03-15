@@ -62,7 +62,7 @@ resource "aws_security_group" "kafka_customer_sg" {
 
 resource "aws_instance" "kafka" {
   ami             = var.instance_ami
-  instance_type   = "t2.micro"
+  instance_type   = "t2.medium"
   security_groups = [aws_security_group.ssh_sg.name, aws_security_group.zookeeper_customer_sg.name, aws_security_group.kafka_customer_sg.name]
   key_name        = var.kafka_key_name
   tags = {
